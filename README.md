@@ -2,6 +2,6 @@
 
 Grupo 1: 
 - Laura Nagamine
-- Mauricio Tello
+- Eduardo Tello
 - Mauricio Teran
 - Adrian Sandoval
