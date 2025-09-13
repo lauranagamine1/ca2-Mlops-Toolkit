@@ -17,4 +17,4 @@ streamlit run app.py
 
 ### URL
 
-(not yet!)
+https://ca2-gpa-predictor-group-1.streamlit.app/
