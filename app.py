@@ -28,10 +28,10 @@ st.set_page_config(page_title="Predictor de GPA (.pkl)", page_icon="🎓", layou
 
 st.markdown("""
 <style>
-/* Fondo negro y texto claro */
-.stApp, .block-container, body {
-  background: #0b0f1a !important;  /* casi negro azul */
-  color: #e5e7eb !important;        /* gris claro */
+/* Fondo negro y texto claro (evitar .block-container para no deformar layout) */
+.stApp, body {
+  background: #0b0f1a !important;
+  color: #e5e7eb !important;
 }
 
 /* Banner (gradiente sobre dark) */
@@ -43,12 +43,12 @@ st.markdown("""
   margin-bottom: 14px;
 }
 
-/* Tarjetas dark */
+/* Tarjetas dark en el MAIN */
 .card {
   border-radius: 14px;
   padding: 1rem 1.2rem;
-  background: #111827;          /* gris-azul oscuro */
-  border: 1px solid #1f2937;    /* borde sutil */
+  background: #111827;
+  border: 1px solid #1f2937;
   box-shadow: 0 8px 22px rgba(0,0,0,0.35);
   color: #e5e7eb;
 }
@@ -67,8 +67,8 @@ st.markdown("""
 /* Texto gris sutil */
 .muted { color: #94a3b8; font-size: 0.92rem; }
 
-/* Botón primario ancho */
-.stButton>button[kind="primary"] {
+/* Botón primario SOLO en el main (no en sidebar) */
+div.block-container .stButton>button[kind="primary"] {
   width: 100%;
   border-radius: 10px;
 }
@@ -76,6 +76,51 @@ st.markdown("""
 /* Métricas: texto claro */
 [data-testid="stMetricValue"], [data-testid="stMetricLabel"], [data-testid="stMetricDelta"] {
   color: #e5e7eb !important;
+}
+
+/* ===== Sidebar: estilos acotados ===== */
+section[data-testid="stSidebar"] {
+  background: #0b0f1a !important;
+  border-right: 1px solid #1f2937;
+}
+
+/* Padding interno del sidebar (suave) */
+section[data-testid="stSidebar"] > div {
+  padding: 0.6rem 0.8rem;
+}
+
+/* Tipografías en sidebar */
+section[data-testid="stSidebar"] * {
+  color: #e5e7eb !important;
+}
+
+/* Inputs del sidebar en dark */
+section[data-testid="stSidebar"] input, 
+section[data-testid="stSidebar"] textarea {
+  background: #0f172a !important;
+  color: #e5e7eb !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+}
+
+/* Selectbox del sidebar en dark */
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+}
+section[data-testid="stSidebar"] div[data-baseweb="select"] * {
+  color: #e5e7eb !important;
+}
+
+/* Botones en sidebar: NO forzar 100% para evitar desbordes */
+section[data-testid="stSidebar"] .stButton>button {
+  width: auto !important;
+  border-radius: 8px !important;
+}
+
+/* Evitar scroll lateral en sidebar por elementos anchos */
+section[data-testid="stSidebar"] {
+  overflow-x: hidden;
 }
 </style>
 """, unsafe_allow_html=True)
